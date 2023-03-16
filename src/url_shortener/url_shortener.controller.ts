@@ -3,7 +3,7 @@ import { UrlShortenerService } from './url_shortener.service';
 import { CreateUrlShortenerDto } from './dto/create-url_shortener.dto';
 import { Response } from 'express';
 
-@Controller('short-url')
+@Controller()
 export class UrlShortenerController {
   constructor(private readonly urlShortenerService: UrlShortenerService) {}
 
