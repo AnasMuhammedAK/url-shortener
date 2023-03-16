@@ -70,7 +70,6 @@ export class UrlShortenerService {
       },
     );
     const { originalURL } = data;
-    console.log(originalURL);
     return originalURL;
   }
 
