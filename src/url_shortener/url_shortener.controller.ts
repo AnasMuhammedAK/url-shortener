@@ -20,11 +20,13 @@ export class UrlShortenerController {
     return res.redirect(301, originalURL);
   }
 
+  //========================| find analytics of url |========================
   @Get('analytics/:id')
   async getAnalytics(@Param('id') id: string) {
     return await this.urlShortenerService.getAnalytics(id);
   }
 
+  //========================| find all generated urls |========================
   @Get()
   findAll() {
     return this.urlShortenerService.findAll();

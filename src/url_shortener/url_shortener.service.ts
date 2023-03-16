@@ -57,31 +57,38 @@ export class UrlShortenerService {
       throw new InternalServerErrorException(error.message);
     }
   }
-
+  //========================| find original url|========================
   async findOriginalUrl(id: string) {
-    const data = await this.urlModel.findOneAndUpdate(
-      { shortId: id },
-      {
-        $push: {
-          visitHistory: {
-            time: Date.now(),
+    try {
+      const data = await this.urlModel.findOneAndUpdate(
+        { shortId: id },
+        {
+          $push: {
+            visitHistory: {
+              time: Date.now(),
+            },
           },
         },
-      },
-    );
-    const { originalURL } = data;
-    return originalURL;
+      );
+      const { originalURL } = data;
+      return originalURL;
+    } catch (error) {
+      throw new InternalServerErrorException(error.message);
+    }
   }
 
   //========================| find specific data |========================
   async getAnalytics(id: string) {
     //we can get from here total clicks and clicking time etc.
-    return await this.urlModel.findOne({ shortId: id });
+    const data = await this.urlModel.findOne({ shortId: id });
+    if (!data) throw new ForbiddenException('data not found');
+    return data;
   }
 
   //========================| find all genarated urls |========================
   async findAll() {
     const data = await this.urlModel.find();
+    if (!data) throw new ForbiddenException('data not found');
     const urls = data.map((item) => {
       return config.get('BASE_URL') + '/' + item.shortId;
     });

@@ -3,8 +3,6 @@
 
 This url shortner give ulimited access and also we get simple analytics
 
-<p align="center">Demo <a href="http://nodejs.org" target="_blank">url shortner</a></p>
-
 ## Installation
 
 ```bash
