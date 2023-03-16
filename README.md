@@ -32,3 +32,10 @@ $ mongodb://[username:password@]host1[:port1][,...hostN[:portN]][/[defaultauthdb
 $ http://localhost:5000
 
 ```
+## Swagger Api Documentation
+
+```bash
+# we can get api with this basic url
+$ http://localhost:5000/api
+
+```

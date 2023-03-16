@@ -2,7 +2,9 @@ import { Controller, Get, Post, Body, Param, Res } from '@nestjs/common';
 import { UrlShortenerService } from './url_shortener.service';
 import { CreateUrlShortenerDto } from './dto/create-url_shortener.dto';
 import { Response } from 'express';
+import { ApiTags } from '@nestjs/swagger';
 
+@ApiTags('basic apis with url')
 @Controller()
 export class UrlShortenerController {
   constructor(private readonly urlShortenerService: UrlShortenerService) {}
