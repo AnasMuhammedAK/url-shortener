@@ -1,12 +1,4 @@
-import {
-  Controller,
-  Get,
-  Post,
-  Body,
-  Param,
-  Redirect,
-  Res,
-} from '@nestjs/common';
+import { Controller, Get, Post, Body, Param, Res } from '@nestjs/common';
 import { UrlShortenerService } from './url_shortener.service';
 import { CreateUrlShortenerDto } from './dto/create-url_shortener.dto';
 import { Response } from 'express';
